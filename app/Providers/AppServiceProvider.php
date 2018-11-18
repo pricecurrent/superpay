@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Payments\PaymentCodeGenerator;
 use Illuminate\Support\ServiceProvider;
+use App\Payments\UniquePaymentCodeGenerator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(PaymentCodeGenerator::class, UniquePaymentCodeGenerator::class);
     }
 }
