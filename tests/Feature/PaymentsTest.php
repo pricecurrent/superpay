@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\User;
 use App\Payment;
 use Tests\TestCase;
+use App\PaymentStatus;
 use App\Payments\PaymentCodeGenerator;
 use App\Payments\FakePaymentCodeGenerator;
 use Illuminate\Auth\AuthenticationException;
@@ -82,6 +83,7 @@ class PaymentTest extends TestCase
             $this->assertEquals('Pay me. Now', $payment->description);
             $this->assertEquals('Hello', $payment->message);
             $this->assertEquals('TESTCODE12345', $payment->code);
+            $this->assertEquals(PaymentStatus::NEW, $payment->status_id);
         });
     }
 
