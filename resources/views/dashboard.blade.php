@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" value="{{ csrf_token() }}">
     <title>Document</title>
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&amp;subset=cyrillic,cyrillic-ext" rel="stylesheet">
 </head>
-<body class="bg-grey-lighter font-sans">
+<body class="bg-gray-200 font-sans">
     <div id="app">
         <header class="mb-12 bg-white py-3">
             <div class="container flex justify-between items-center mx-auto w-base">
@@ -29,7 +29,7 @@
         </header>
 
         <div class="container mx-auto w-base">
-            <h1 class="mb-4 text-grey-darker uppercase text-xl font-normal">Payments</h1>
+            <h1 class="mb-4 text-gray-600 uppercase text-xl font-normal">Payments</h1>
 
             <dashboard-payments></dashboard-payments>
         </div>
