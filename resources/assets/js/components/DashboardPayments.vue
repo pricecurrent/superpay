@@ -2,20 +2,24 @@
     <div>
         <nav class="mb-6">
             <ul class="flex list-reset">
-                <li :class="{'border-b-2 border-teal-500': activeTab == 'new'}" @click.prevent="activateTab('new')" class="px-10 py-2"><a href="#">New</a></li>
-                <li :class="{'border-b-2 border-teal-500': activeTab == 'sent'}" @click.prevent="activateTab('sent')" class="px-10 py-2"><a href="#">Sent</a></li>
-                <li :class="{'border-b-2 border-teal-500': activeTab == 'paid'}" @click.prevent="activateTab('paid')" class="px-10 py-2"><a href="#">Paid</a></li>
+                <li :class="{'border-b-2 border-teal-500 font-bold': activeTab == 'new'}" @click.prevent="activateTab('new')" class="flex-1 text-center px-10 py-2 sm:flex-grow-0 sm:text-left text-gray-700"><a href="#">New</a></li>
+                <li :class="{'border-b-2 border-teal-500 font-bold': activeTab == 'sent'}" @click.prevent="activateTab('sent')" class="flex-1 text-center px-10 py-2 sm:flex-grow-0 sm:text-left text-gray-700"><a href="#">Sent</a></li>
+                <li :class="{'border-b-2 border-teal-500 font-bold': activeTab == 'paid'}" @click.prevent="activateTab('paid')" class="flex-1 text-center px-10 py-2 sm:flex-grow-0 sm:text-left text-gray-700"><a href="#">Paid</a></li>
             </ul>
         </nav>
-        <div class="lg:flex">
-            <div v-for="payment in payments" class="flex flex-col justify-between lg:w-1/3 h-48 rounded-lg shadow bg-white p-6 mr-5 mb-12">
-                <h2 class="font-normal text-lg text-gray-600">{{ payment.email }}</h2>
-                <div class="text-3xl font-bold text-black"><span class="text-2xl">$</span>{{ payment.amount }}</div>
-                <div class="flex-end flex items-center justify-between -m-6 px-6 py-3 bg-grey-lighter text-right shadow-inner">
-                    <span class="text-gray-600 text-sm">{{ payment.created_at }}</span>
-                    <a :href="`/payments/${payment.id}`" class="flex items-center px-4 rounded-full text-teal-500">
-                        <span>view payment</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 stroke-current bg-teal-400 ml-1 icon-arrow-thin-right-circle"><circle cx="12" cy="12" r="10"/><path class="secondary" d="M14.59 13H7a1 1 0 0 1 0-2h7.59l-2.3-2.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4l2.3-2.3z"/></svg>
+        <div class="sm:flex">
+            <div v-for="payment in payments" class="mb-12 rounded shadow bg-white overflow-y-hidden sm:w-1/3 sm:mr-4">
+                <div class="p-4 flex justify-between items-center">
+                    <div>
+                        <span class="text-gray-700 text-lg">$</span><span class="text-gray-700 text-xl font-semibold">{{ payment.amount }}</span>
+                    </div>
+                    <span class="text-sm text-teal-700 bg-teal-100 px-1 rounded-sm">{{ payment.created_at }}</span>
+                </div>
+                <div class="px-4 py-4 text-base text-gray-600">{{ payment.email }}</div>
+                <div class="flex items-center justify-between">
+                    <a :href="`/payments/${payment.id}`" class="flex items-center w-full text-sm text-center px-4 py-3 bg-teal-500 text-white hover:bg-gray-100 hover:text-teal-500">
+                        <span class="inline-block w-full text-center">view payment</span>
+                        <svg class="w-3 h-3 stroke-current text-teal-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
                     </a>
                 </div>
             </div>
